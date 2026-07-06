@@ -352,6 +352,186 @@ select.input-field {
   font-weight: 600;
 }
 
+.product-card:focus-visible {
+  outline: 2px solid var(--color-ring-strong);
+  outline-offset: 2px;
+}
+
+.product-grid__empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 5rem 1rem;
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: 0.875rem;
+}
+
+/* Buttons + modal — Still pet project patterns */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent-text);
+  background: var(--color-accent);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-ring-strong);
+  outline-offset: 2px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal[hidden] {
+  display: none !important;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 0.75rem;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.45);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 56rem);
+  max-height: 94vh;
+  overflow: auto;
+  border-radius: var(--radius-3xl);
+  background: var(--color-surface);
+  box-shadow:
+    inset 0 0 0 1px var(--color-ring),
+    0 24px 64px var(--color-shadow);
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  color: var(--color-ink-muted);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.modal__close:hover {
+  color: var(--color-ink);
+  background: var(--color-line-soft);
+}
+
+.modal-panel__grid {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  .modal-panel__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.modal-panel__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 17.5rem;
+  padding: 2rem;
+  background: var(--color-line-soft);
+}
+
+.modal-panel__media img {
+  max-height: 21rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.modal-panel__body {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 768px) {
+  .modal-panel__body {
+    padding: 2.5rem;
+    border-top: 0;
+    border-left: 1px solid var(--color-line);
+  }
+}
+
+.modal-panel__meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.modal-panel__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  line-height: 1.15;
+}
+
+.modal-panel__price {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.modal-panel__rating {
+  margin: 0 0 1.5rem;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+.modal-panel__description {
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.modal-panel__cta {
+  width: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

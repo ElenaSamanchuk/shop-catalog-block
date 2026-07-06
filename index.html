@@ -21,189 +21,70 @@
             <h1 id="catalog-title" class="heading-display catalog-head__title">Products</h1>
             <p class="catalog-head__lead">Fresh picks from the catalog</p>
           </div>
-          <p class="catalog-head__count">8 items</p>
+          <p class="catalog-head__count" id="catalogStatus">8 items</p>
         </header>
 
         <div class="catalog-toolbar">
           <div class="catalog-toolbar__inner">
             <div class="catalog-toolbar__controls">
               <input
+                id="searchInput"
                 class="input-field catalog-toolbar__search"
                 type="search"
                 placeholder="Search products..."
                 autocomplete="off"
                 aria-label="Search products"
               />
-              <select class="input-field catalog-toolbar__sort" aria-label="Sort by">
-                <option>Featured</option>
-                <option>Price: low to high</option>
-                <option>Price: high to low</option>
-                <option>Top rated</option>
+              <select id="sortSelect" class="input-field catalog-toolbar__sort" aria-label="Sort by">
+                <option value="default">Featured</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="rating">Top rated</option>
               </select>
             </div>
-            <div class="catalog-toolbar__filters" role="tablist" aria-label="Categories">
-              <button class="filter-chip is-active" type="button">All products</button>
-              <button class="filter-chip" type="button">Men's clothing</button>
-              <button class="filter-chip" type="button">Women's clothing</button>
-              <button class="filter-chip" type="button">Jewelery</button>
-            </div>
+            <div
+              class="catalog-toolbar__filters"
+              id="categoryFilters"
+              role="tablist"
+              aria-label="Categories"
+            ></div>
           </div>
         </div>
 
-        <div class="product-grid">
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-01.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Men's Clothing</p>
-              <h2 class="product-card__title">Fjallraven - Foldsack No. 1 Backpack</h2>
-              <p class="product-card__price">$109.95</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-02.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Men's Clothing</p>
-              <h2 class="product-card__title">Mens Casual Slim Fit</h2>
-              <p class="product-card__price">$15.99</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-03.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Men's Clothing</p>
-              <h2 class="product-card__title">Mens Cotton Jacket</h2>
-              <p class="product-card__price">$55.99</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-04.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Men's Clothing</p>
-              <h2 class="product-card__title">Mens Casual Slim Fit 2</h2>
-              <p class="product-card__price">$22.30</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-05.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Women's Clothing</p>
-              <h2 class="product-card__title">Solid Gold Petite Micropave</h2>
-              <p class="product-card__price">$168.00</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-06.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Women's Clothing</p>
-              <h2 class="product-card__title">Princess Mid Sleeve Dress</h2>
-              <p class="product-card__price">$9.99</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-07.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Women's Clothing</p>
-              <h2 class="product-card__title">Opna Dry-Fit Sleeveless</h2>
-              <p class="product-card__price">$7.95</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="./img/product-08.svg"
-                alt=""
-                width="640"
-                height="800"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="product-card__quick">View</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__meta">Women's Clothing</p>
-              <h2 class="product-card__title">Cotton Casual Slim Fit</h2>
-              <p class="product-card__price">$39.99</p>
-            </div>
-          </article>
-        </div>
+        <div class="product-grid" id="productGrid"></div>
       </div>
     </section>
+
+    <div
+      id="productModal"
+      class="modal"
+      tabindex="-1"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" class="modal__close" data-close-modal aria-label="Close">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+        <div class="modal-panel__grid">
+          <div class="modal-panel__media">
+            <img id="modalImage" alt="" decoding="async" />
+          </div>
+          <div class="modal-panel__body">
+            <p class="modal-panel__meta" id="modalCategory"></p>
+            <h2 class="heading-display modal-panel__title" id="modalTitle"></h2>
+            <p class="modal-panel__price" id="modalPrice"></p>
+            <p class="modal-panel__rating" id="modalRating"></p>
+            <p class="modal-panel__description" id="modalDescription"></p>
+            <button type="button" class="btn-primary modal-panel__cta" id="modalViewBtn">View details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
   </body>
 </html>

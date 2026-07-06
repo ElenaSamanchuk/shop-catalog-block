@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" role="img" aria-label="Shirt">
-  <rect width="640" height="800" fill="#27272a"/>
-  <path d="M160 260 L250 210 L320 250 L390 210 L480 260 L430 520 L210 520 Z" fill="#52525b"/>
-  <path d="M250 210 L320 290 L390 210" fill="none" stroke="#71717a" stroke-width="8"/>
-</svg>

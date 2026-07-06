@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" role="img" aria-label="Pendant">
-  <rect width="640" height="800" fill="#27272a"/>
-  <circle cx="320" cy="290" r="70" fill="#71717a"/>
-  <path d="M320 220 V170" stroke="#a1a1aa" stroke-width="8" stroke-linecap="round"/>
-  <ellipse cx="320" cy="430" rx="55" ry="70" fill="#52525b"/>
-</svg>
