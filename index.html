@@ -14,6 +14,21 @@
     <title>Still — catalog</title>
   </head>
   <body>
+    <header class="site-header">
+      <div class="page-wrap site-header__inner">
+        <div class="site-header__bar">
+          <a href="./index.html" class="brand">Still</a>
+          <nav class="site-nav" aria-label="Main">
+            <a href="./index.html#products" class="nav-link is-active">Shop</a>
+            <a href="./cart.html" class="nav-link cart-link" aria-label="Cart">
+              Cart
+              <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
     <section class="catalog" id="products" aria-labelledby="catalog-title">
       <div class="page-wrap catalog-shell">
         <header class="catalog-head">
@@ -112,6 +127,7 @@
       </div>
     </div>
 
+    <script src="cart.js"></script>
     <script src="app.js" defer></script>
   </body>
 </html>

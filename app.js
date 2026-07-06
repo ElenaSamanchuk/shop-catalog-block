@@ -1,5 +1,4 @@
 const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
-const CART_KEY = 'still-catalog-block-cart';
 
 const state = {
   products: [],
@@ -15,81 +14,6 @@ function formatCategory(label) {
     .split(/[\s_-]+/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
-}
-
-function formatPrice(value) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
-  }).format(value);
-}
-
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function readCart() {
-  try {
-    const raw = localStorage.getItem(CART_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeCart(items) {
-  localStorage.setItem(CART_KEY, JSON.stringify(items));
-}
-
-function addToCart(product, { size = 'M', qty = 1 } = {}) {
-  const items = readCart();
-  const key = `${product.id}-${size}`;
-  const existing = items.find((item) => item.key === key);
-
-  if (existing) {
-    existing.qty += qty;
-  } else {
-    items.push({
-      key,
-      id: product.id,
-      title: product.title,
-      image: product.image,
-      price: product.price,
-      category: product.category,
-      size,
-      qty,
-    });
-  }
-
-  writeCart(items);
-  return items;
-}
-
-function showToast(message) {
-  let host = document.getElementById('toastHost');
-  if (!host) {
-    host = document.createElement('div');
-    host.id = 'toastHost';
-    host.className = 'toast-host';
-    document.body.appendChild(host);
-  }
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.textContent = message;
-  host.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add('is-visible'));
-  setTimeout(() => {
-    toast.classList.remove('is-visible');
-    setTimeout(() => toast.remove(), 300);
-  }, 2600);
 }
 
 function renderProductCard(product) {
