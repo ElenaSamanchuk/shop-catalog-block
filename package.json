@@ -1,0 +1,22 @@
+{
+  "name": "shop-catalog-block",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://elenasamanchuk.github.io/shop-catalog-block",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp dist/index.html dist/404.html",
+    "build:pages": "npm run build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.2"
+  }
+}

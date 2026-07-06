@@ -1,0 +1,88 @@
+:root,
+[data-design='flow'] {
+  --header-sticky-offset: 5rem;
+  --color-page: #f4f4f5;
+  --color-surface: #ffffff;
+  --color-ink: #09090b;
+  --color-ink-soft: #3f3f46;
+  --color-ink-muted: #71717a;
+  --color-line: #e4e4e7;
+  --color-line-soft: #f4f4f5;
+  --color-accent: #09090b;
+  --color-accent-hover: #27272a;
+  --color-accent-text: #fafafa;
+  --color-header-solid: rgb(255 255 255 / 0.72);
+  --color-toolbar: rgb(255 255 255 / 0.85);
+  --color-shadow: rgb(9 9 11 / 0.08);
+  --color-ring: rgb(9 9 11 / 0.06);
+  --color-ring-strong: rgb(9 9 11 / 0.18);
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+[data-design='night'] {
+  --header-sticky-offset: 5rem;
+  --color-page: #09090b;
+  --color-surface: #18181b;
+  --color-ink: #fafafa;
+  --color-ink-soft: #d4d4d8;
+  --color-ink-muted: #a1a1aa;
+  --color-line: #3f3f46;
+  --color-line-soft: #27272a;
+  --color-accent: #fafafa;
+  --color-accent-hover: #e4e4e7;
+  --color-accent-text: #18181b;
+  --color-header-solid: rgb(24 24 27 / 0.8);
+  --color-toolbar: rgb(24 24 27 / 0.85);
+  --color-shadow: rgb(0 0 0 / 0.35);
+  --color-ring: rgb(255 255 255 / 0.08);
+  --color-ring-strong: rgb(255 255 255 / 0.2);
+}
+
+[data-design-hero] {
+  display: none;
+}
+
+[data-design='flow'] [data-design-hero='flow'],
+[data-design='night'] [data-design-hero='night'] {
+  display: block;
+}
+
+[data-design='night'] .hero-badge {
+  @apply bg-zinc-800 ring-white/10 text-zinc-300;
+}
+
+[data-design='night'] .hero-video-frame {
+  @apply ring-white/10;
+}
+
+[data-design='night'] .site-header__bar {
+  @apply ring-white/10;
+}
+
+[data-design='night'] .product-card {
+  @apply ring-white/10 hover:ring-[color:var(--color-ring-strong)];
+}
+
+[data-design='night'] input[type='number'] {
+  color-scheme: dark;
+}
+
+.design-switcher {
+  @apply fixed bottom-5 right-5 z-[90] bg-surface ring-1 ring-[color:var(--color-ring)] shadow-lg rounded-2xl p-3;
+}
+
+.design-switcher__hint {
+  @apply text-xs text-ink-muted mb-2;
+}
+
+.design-switcher__options {
+  @apply flex gap-2;
+}
+
+.design-switcher__btn {
+  @apply px-4 py-2 text-xs font-medium rounded-xl ring-1 ring-[color:var(--color-ring)] text-ink-soft hover:text-ink transition-colors;
+}
+
+.design-switcher__btn.is-active {
+  @apply bg-accent text-accent-text ring-accent;
+}
