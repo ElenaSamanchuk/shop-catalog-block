@@ -1,8 +1,13 @@
+const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+const CART_KEY = 'still-catalog-block-cart';
+
 const state = {
   products: [],
   category: 'all',
   query: '',
   sort: 'default',
+  activeProduct: null,
+  selectedSize: 'M',
 };
 
 function formatCategory(label) {
@@ -26,6 +31,65 @@ function escapeHtml(text) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function readCart() {
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeCart(items) {
+  localStorage.setItem(CART_KEY, JSON.stringify(items));
+}
+
+function addToCart(product, { size = 'M', qty = 1 } = {}) {
+  const items = readCart();
+  const key = `${product.id}-${size}`;
+  const existing = items.find((item) => item.key === key);
+
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    items.push({
+      key,
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      category: product.category,
+      size,
+      qty,
+    });
+  }
+
+  writeCart(items);
+  return items;
+}
+
+function showToast(message) {
+  let host = document.getElementById('toastHost');
+  if (!host) {
+    host = document.createElement('div');
+    host.id = 'toastHost';
+    host.className = 'toast-host';
+    document.body.appendChild(host);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  host.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('is-visible'));
+  setTimeout(() => {
+    toast.classList.remove('is-visible');
+    setTimeout(() => toast.remove(), 300);
+  }, 2600);
 }
 
 function renderProductCard(product) {
@@ -112,9 +176,32 @@ function renderProducts() {
   if (status) status.textContent = `${list.length} ${list.length === 1 ? 'item' : 'items'}`;
 }
 
+function setSelectedSize(size) {
+  if (!SIZES.includes(size)) return;
+  state.selectedSize = size;
+  document.querySelectorAll('#sizePills [data-size]').forEach((pill) => {
+    pill.classList.toggle('is-selected', pill.dataset.size === size);
+  });
+}
+
+function resetQty() {
+  const qtyInput = document.getElementById('qtyInput');
+  if (qtyInput) qtyInput.value = '1';
+}
+
+function getQtyValue() {
+  const qtyInput = document.getElementById('qtyInput');
+  const value = Math.max(1, Math.min(9, Number(qtyInput?.value ?? 1)));
+  if (qtyInput) qtyInput.value = String(value);
+  return value;
+}
+
 function openModal(product) {
   const modal = document.getElementById('productModal');
   if (!modal) return;
+
+  state.activeProduct = product;
+  state.selectedSize = 'M';
 
   document.getElementById('modalCategory').textContent = formatCategory(product.category);
   document.getElementById('modalTitle').textContent = product.title;
@@ -122,6 +209,9 @@ function openModal(product) {
   document.getElementById('modalRating').textContent = `${product.rating?.rate ?? 0} · ${product.rating?.count ?? 0} reviews`;
   document.getElementById('modalDescription').textContent = product.description;
   document.getElementById('modalImage').src = product.image;
+
+  setSelectedSize('M');
+  resetQty();
 
   modal.hidden = false;
   modal.setAttribute('aria-hidden', 'false');
@@ -132,6 +222,7 @@ function closeModal() {
   const modal = document.getElementById('productModal');
   if (!modal) return;
 
+  state.activeProduct = null;
   modal.hidden = true;
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
@@ -141,7 +232,40 @@ function findProduct(id) {
   return state.products.find((item) => item.id === id) ?? null;
 }
 
+function bindModalControls() {
+  document.getElementById('sizePills')?.addEventListener('click', (event) => {
+    const pill = event.target.closest('[data-size]');
+    if (!pill) return;
+    setSelectedSize(pill.dataset.size ?? 'M');
+  });
+
+  document.getElementById('qtyMinus')?.addEventListener('click', () => {
+    const qtyInput = document.getElementById('qtyInput');
+    if (!qtyInput) return;
+    qtyInput.value = String(Math.max(1, Number(qtyInput.value) - 1));
+  });
+
+  document.getElementById('qtyPlus')?.addEventListener('click', () => {
+    const qtyInput = document.getElementById('qtyInput');
+    if (!qtyInput) return;
+    qtyInput.value = String(Math.min(9, Number(qtyInput.value) + 1));
+  });
+
+  document.getElementById('qtyInput')?.addEventListener('change', () => {
+    getQtyValue();
+  });
+
+  document.getElementById('addToCartBtn')?.addEventListener('click', () => {
+    if (!state.activeProduct) return;
+    const qty = getQtyValue();
+    addToCart(state.activeProduct, { size: state.selectedSize, qty });
+    showToast('Added to cart');
+  });
+}
+
 function bindControls() {
+  bindModalControls();
+
   document.getElementById('categoryFilters')?.addEventListener('click', (event) => {
     const btn = event.target.closest('[data-category]');
     if (!btn) return;
@@ -179,8 +303,6 @@ function bindControls() {
   document.getElementById('productModal')?.addEventListener('click', (event) => {
     if (event.target.closest('[data-close-modal]')) closeModal();
   });
-
-  document.getElementById('modalViewBtn')?.addEventListener('click', closeModal);
 
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeModal();

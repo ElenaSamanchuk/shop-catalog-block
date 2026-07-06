@@ -79,7 +79,34 @@
             <p class="modal-panel__price" id="modalPrice"></p>
             <p class="modal-panel__rating" id="modalRating"></p>
             <p class="modal-panel__description" id="modalDescription"></p>
-            <button type="button" class="btn-primary modal-panel__cta" id="modalViewBtn">View details</button>
+
+            <p class="label-caps">Size</p>
+            <div class="size-pills" id="sizePills" role="group" aria-label="Choose size">
+              <button type="button" class="size-pill is-selected" data-size="XS">XS</button>
+              <button type="button" class="size-pill" data-size="S">S</button>
+              <button type="button" class="size-pill" data-size="M">M</button>
+              <button type="button" class="size-pill" data-size="L">L</button>
+              <button type="button" class="size-pill" data-size="XL">XL</button>
+            </div>
+
+            <div class="modal-panel__qty-row">
+              <p class="label-caps">Qty</p>
+              <div class="qty-stepper">
+                <button type="button" class="qty-stepper__btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
+                <input
+                  type="number"
+                  id="qtyInput"
+                  class="qty-stepper__input"
+                  min="1"
+                  max="9"
+                  value="1"
+                  aria-label="Quantity"
+                />
+                <button type="button" class="qty-stepper__btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary modal-panel__cta" id="addToCartBtn">Add to cart</button>
           </div>
         </div>
       </div>
