@@ -1,4 +1,9 @@
 node_modules
 dist
 .DS_Store
-package.json.tmp
+src
+package.json
+package-lock.json
+vite.config.js
+tailwind.config.js
+postcss.config.js

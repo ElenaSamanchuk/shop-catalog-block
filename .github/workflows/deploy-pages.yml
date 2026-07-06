@@ -19,24 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
       - uses: actions/configure-pages@v4
-
-      - run: npm ci
-
-      - name: Build Still catalog block
-        env:
-          GITHUB_PAGES_BASE: /${{ github.event.repository.name }}/
-        run: npm run build:pages
-
+      - run: cp index.html 404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: .
 
   deploy:
     needs: build

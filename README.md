@@ -1,9 +1,7 @@
-# Still catalog block
+# Still — catalog block (test assignment)
 
-Test assignment slice from pet project **Still Store** (`apparel-store/`).
+Pure **HTML + CSS** catalog section. Visual system translated from pet project [Still Store](https://elenasamanchuk.github.io/still-store/) (`apparel-store/`).
 
-Same stack: Vite · Tailwind · vanilla JS · Flowbite · design tokens from `src/styles/designs.css`.
-
-Live: https://elenasamanchuk.github.io/shop-catalog-block/
-
-Full store: https://elenasamanchuk.github.io/still-store/
+- 8 product cards
+- No UI kits, no JS, no build step
+- Live: https://elenasamanchuk.github.io/shop-catalog-block/

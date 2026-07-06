@@ -3,73 +3,207 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Still — catalog section from pet project still-store." />
+    <meta name="description" content="Still — catalog block (HTML + CSS test assignment)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script>
-      try {
-        const saved = localStorage.getItem('still-store-design');
-        const legacy = { still: 'flow', market: 'flow', luxe: 'flow', studio: 'flow' };
-        document.documentElement.dataset.design = legacy[saved] || saved || 'night';
-      } catch (e) {
-        document.documentElement.dataset.design = 'night';
-      }
-    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
     <title>Still — catalog</title>
   </head>
   <body>
-    <div data-site-header></div>
-
-    <main class="pt-24 sm:pt-28">
-      <section class="pb-16 md:pb-24" id="products">
-        <div class="page-wrap catalog-shell" id="catalogShell">
-          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
-            <div>
-              <h1 class="heading-display text-2xl sm:text-3xl">Products</h1>
-              <p class="text-sm text-ink-muted mt-1">Fresh picks from the catalog</p>
-            </div>
-            <p id="catalogStatus" class="text-sm text-ink-muted">Loading...</p>
+    <section class="catalog" id="products" aria-labelledby="catalog-title">
+      <div class="page-wrap catalog-shell">
+        <header class="catalog-head">
+          <div class="catalog-head__copy">
+            <h1 id="catalog-title" class="heading-display catalog-head__title">Products</h1>
+            <p class="catalog-head__lead">Fresh picks from the catalog</p>
           </div>
+          <p class="catalog-head__count">8 items</p>
+        </header>
 
-          <div class="catalog-toolbar">
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col sm:flex-row gap-3">
-                <input
-                  id="searchInput"
-                  type="search"
-                  placeholder="Search products..."
-                  autocomplete="off"
-                  class="input-field sm:max-w-xs"
-                />
-                <select id="sortSelect" aria-label="Sort by" class="input-field sm:w-44">
-                  <option value="default">Featured</option>
-                  <option value="price-asc">Price: low to high</option>
-                  <option value="price-desc">Price: high to low</option>
-                  <option value="rating">Top rated</option>
-                </select>
-              </div>
-              <div class="flex gap-2 overflow-x-auto pb-1 scrollbar-none" id="categoryFilters"></div>
+        <div class="catalog-toolbar">
+          <div class="catalog-toolbar__inner">
+            <div class="catalog-toolbar__controls">
+              <input
+                class="input-field catalog-toolbar__search"
+                type="search"
+                placeholder="Search products..."
+                autocomplete="off"
+                aria-label="Search products"
+              />
+              <select class="input-field catalog-toolbar__sort" aria-label="Sort by">
+                <option>Featured</option>
+                <option>Price: low to high</option>
+                <option>Price: high to low</option>
+                <option>Top rated</option>
+              </select>
+            </div>
+            <div class="catalog-toolbar__filters" role="tablist" aria-label="Categories">
+              <button class="filter-chip is-active" type="button">All products</button>
+              <button class="filter-chip" type="button">Men's clothing</button>
+              <button class="filter-chip" type="button">Women's clothing</button>
+              <button class="filter-chip" type="button">Jewelery</button>
             </div>
           </div>
-
-          <div id="productGrid" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 pt-6"></div>
         </div>
-      </section>
-    </main>
 
-    <div
-      id="productModal"
-      tabindex="-1"
-      aria-hidden="true"
-      class="hidden fixed inset-0 z-[60] items-end md:items-center justify-center bg-black/40 p-3 md:p-6"
-    ></div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/71-3HjGNDULeL+F3GrfrfpFi94afwgX4FBNUaLg4K8UkEelN+zvUTAzDxS0ZVRQAJAgP9i+THTbZLRzQHO6+Txe7xNqRmpef6Dncm6xqLxNjgpwfwfw"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Men's Clothing</p>
+              <h2 class="product-card__title">Fjallraven - Foldsack No. 1 Backpack</h2>
+              <p class="product-card__price">$109.95</p>
+            </div>
+          </article>
 
-    <div data-site-footer></div>
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/71li-ujtlULXK1xNFgqxQ7M1WWFKiNHT4z8aFvWyimdqjnxuNi9Skx0LvLi9JCORjV"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Men's Clothing</p>
+              <h2 class="product-card__title">Mens Casual Slim Fit</h2>
+              <p class="product-card__price">$15.99</p>
+            </div>
+          </article>
 
-    <script type="module" src="/src/main.js"></script>
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/61sbMiUnoGL._UL640_QL65_ML3_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Men's Clothing</p>
+              <h2 class="product-card__title">Mens Cotton Jacket</h2>
+              <p class="product-card__price">$55.99</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/71YXzeHusL._AC_UY879_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Men's Clothing</p>
+              <h2 class="product-card__title">Mens Casual Slim Fit 2</h2>
+              <p class="product-card__price">$22.30</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Women's Clothing</p>
+              <h2 class="product-card__title">Solid Gold Petite Micropave</h2>
+              <p class="product-card__price">$168.00</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Women's Clothing</p>
+              <h2 class="product-card__title">Princess Mid Sleeve Dress</h2>
+              <p class="product-card__price">$9.99</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/71z3bkB5qL._AC_UX679_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Women's Clothing</p>
+              <h2 class="product-card__title">Opna Dry-Fit Sleeveless</h2>
+              <p class="product-card__price">$7.95</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image-wrap">
+              <img
+                src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+                alt=""
+                width="640"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="product-card__quick">View</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__meta">Women's Clothing</p>
+              <h2 class="product-card__title">Cotton Casual Slim Fit</h2>
+              <p class="product-card__price">$39.99</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
