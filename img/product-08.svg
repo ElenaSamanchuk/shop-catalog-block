@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" role="img" aria-label="Sneakers">
+  <rect width="640" height="800" fill="#27272a"/>
+  <path d="M180 430 H460 C470 430 480 450 470 470 L430 500 H210 L170 470 C160 450 170 430 180 430 Z" fill="#52525b"/>
+  <path d="M210 430 C240 390 400 390 430 430" fill="#71717a"/>
+  <rect x="250" y="500" width="140" height="18" rx="9" fill="#3f3f46"/>
+</svg>

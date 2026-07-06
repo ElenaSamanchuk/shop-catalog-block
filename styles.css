@@ -1,25 +1,28 @@
-/* Still Store design tokens — from pet project apparel-store/src/styles/designs.css */
-:root {
+/* Still Store — night theme (pet project default) */
+:root,
+[data-theme='night'] {
   --header-sticky-offset: 5rem;
-  --color-page: #f4f4f5;
-  --color-surface: #ffffff;
-  --color-ink: #09090b;
-  --color-ink-soft: #3f3f46;
-  --color-ink-muted: #71717a;
-  --color-line: #e4e4e7;
-  --color-line-soft: #f4f4f5;
-  --color-accent: #09090b;
-  --color-accent-hover: #27272a;
-  --color-accent-text: #fafafa;
-  --color-toolbar: rgb(255 255 255 / 0.85);
-  --color-shadow: rgb(9 9 11 / 0.08);
-  --color-ring: rgb(9 9 11 / 0.06);
-  --color-ring-strong: rgb(9 9 11 / 0.18);
+  --color-page: #09090b;
+  --color-surface: #18181b;
+  --color-ink: #fafafa;
+  --color-ink-soft: #d4d4d8;
+  --color-ink-muted: #a1a1aa;
+  --color-line: #3f3f46;
+  --color-line-soft: #27272a;
+  --color-accent: #fafafa;
+  --color-accent-hover: #e4e4e7;
+  --color-accent-text: #18181b;
+  --color-toolbar: rgb(24 24 27 / 0.85);
+  --color-shadow: rgb(0 0 0 / 0.35);
+  --color-ring: rgb(255 255 255 / 0.08);
+  --color-ring-strong: rgb(255 255 255 / 0.2);
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
   --space-page-x: clamp(1rem, 4vw, 1.5rem);
+  color-scheme: dark;
 }
 
 *,
@@ -158,10 +161,21 @@ select {
   border: 0;
   border-radius: var(--radius-xl);
   font-size: 0.875rem;
-  background: var(--color-surface);
+  background-color: var(--color-surface);
   box-shadow: inset 0 0 0 1px var(--color-ring);
   outline: none;
   transition: box-shadow 0.2s ease;
+}
+
+select.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  cursor: pointer;
+  background-image: var(--select-arrow);
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  background-size: 1rem;
 }
 
 .input-field:focus {
@@ -241,6 +255,18 @@ select {
 @media (hover: hover) {
   .product-card:hover {
     transform: translateY(-2px);
+    box-shadow:
+      inset 0 0 0 1px var(--color-ring-strong),
+      0 16px 48px var(--color-shadow);
+  }
+}
+
+[data-theme='night'] .product-card {
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+@media (hover: hover) {
+  [data-theme='night'] .product-card:hover {
     box-shadow:
       inset 0 0 0 1px var(--color-ring-strong),
       0 16px 48px var(--color-shadow);

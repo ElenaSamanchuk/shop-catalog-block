@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" role="img" aria-label="Jacket">
+  <rect width="640" height="800" fill="#27272a"/>
+  <path d="M180 250 L260 200 L320 270 L380 200 L460 250 L420 540 L220 540 Z" fill="#3f3f46"/>
+  <rect x="305" y="320" width="30" height="140" rx="8" fill="#52525b"/>
+  <path d="M220 320 H420" stroke="#71717a" stroke-width="6"/>
+</svg>
