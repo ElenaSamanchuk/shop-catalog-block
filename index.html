@@ -1,202 +1,180 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-design="flow">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Still — каталог</title>
+    <meta name="description" content="Still — catalog section" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <title>Still — каталог</title>
   </head>
   <body>
-    <main class="page">
-      <section class="catalog" aria-labelledby="catalog-title">
-        <header class="catalog__head">
-          <p class="catalog__eyebrow">Still · новая коллекция</p>
-          <div class="catalog__intro">
-            <h1 id="catalog-title" class="catalog__title">Базовый гардероб на каждый день</h1>
-            <p class="catalog__lead">
-              Спокойные фактуры, чистые линии и посадка, которая не требует «наряда». Восемь
-              вещей — одна система.
-            </p>
+    <header class="site-header" aria-label="Шапка магазина">
+      <div class="site-header__bar">
+        <a class="brand" href="#">Still</a>
+        <nav class="site-nav" aria-label="Навигация">
+          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link is-active" href="#products">Shop</a>
+          <a class="nav-link" href="#">Account</a>
+        </nav>
+        <button class="header-action" type="button" aria-label="Корзина">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9H7.5L6 6Z" />
+            <path d="M6 6 5 3H2" />
+            <circle cx="9" cy="20" r="1" />
+            <circle cx="18" cy="20" r="1" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="catalog" id="products" aria-labelledby="catalog-title">
+        <div class="page-wrap catalog-shell">
+          <div class="catalog-head">
+            <div>
+              <h1 id="catalog-title" class="heading-display catalog-head__title">Products</h1>
+              <p class="catalog-head__lead">Fresh picks from the catalog</p>
+            </div>
+            <p class="catalog-head__count">8 items</p>
           </div>
-          <a class="catalog__link" href="#">
-            Смотреть lookbook
-            <span class="catalog__link-arrow" aria-hidden="true">→</span>
-          </a>
-        </header>
 
-        <ul class="catalog__grid">
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Хлопковая рубашка oversize">
-              <img
-                src="https://images.unsplash.com/photo-1596755094514-f87e34085b00?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
+          <div class="catalog-toolbar">
+            <div class="catalog-toolbar__row">
+              <input
+                class="input-field catalog-toolbar__search"
+                type="search"
+                placeholder="Search products..."
+                autocomplete="off"
+                aria-label="Поиск"
               />
-              <span class="product-card__badge">New</span>
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Хлопковая рубашка oversize</a></h2>
-              <p class="product-card__meta">100% хлопок · 4 цвета</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">4 900 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
+              <select class="input-field catalog-toolbar__sort" aria-label="Сортировка">
+                <option>Featured</option>
+                <option>Price: low to high</option>
+                <option>Price: high to low</option>
+                <option>Top rated</option>
+              </select>
             </div>
-          </li>
+            <div class="catalog-toolbar__filters" role="tablist" aria-label="Категории">
+              <button class="filter-chip is-active" type="button" role="tab" aria-selected="true">All</button>
+              <button class="filter-chip" type="button" role="tab" aria-selected="false">Men</button>
+              <button class="filter-chip" type="button" role="tab" aria-selected="false">Women</button>
+              <button class="filter-chip" type="button" role="tab" aria-selected="false">Jewelry</button>
+            </div>
+          </div>
 
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Широкие брюки из льна">
-              <img
-                src="https://images.unsplash.com/photo-1594633312681-425a7b956cc9?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Широкие брюки из льна</a></h2>
-              <p class="product-card__meta">Лён · пояс со складками</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">6 200 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Трикотажный свитер crew neck">
-              <img
-                src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-              <span class="product-card__badge product-card__badge--soft">−15%</span>
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Трикотажный свитер crew neck</a></h2>
-              <p class="product-card__meta">Меринос · мягкий начёс</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">
-                  <s class="product-card__old">7 800 ₽</s>
-                  6 630 ₽
-                </span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Пальто из смесовой шерсти">
-              <img
-                src="https://images.unsplash.com/photo-1539533018447-63fcce267608?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Пальто из смесовой шерсти</a></h2>
-              <p class="product-card__meta">До колена · подкладка</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">18 400 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Джинсы straight fit">
-              <img
-                src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Джинсы straight fit</a></h2>
-              <p class="product-card__meta">Средняя посадка · indigo</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">5 600 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Кашемировый шарф">
-              <img
-                src="https://images.unsplash.com/photo-1520903920243-00d744a17602?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Кашемировый шарф</a></h2>
-              <p class="product-card__meta">180 × 30 см · 6 оттенков</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">3 400 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Платье-миди на запах">
-              <img
-                src="https://images.unsplash.com/photo-1595777457583-95e059d581bd?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Платье-миди на запах</a></h2>
-              <p class="product-card__meta">Вискоза · пояс в комплекте</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">8 900 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-
-          <li class="product-card">
-            <a class="product-card__media" href="#" aria-label="Кроссовки из замши">
-              <img
-                src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80"
-                alt=""
-                width="800"
-                height="1000"
-                loading="lazy"
-              />
-              <span class="product-card__badge">Last pair</span>
-            </a>
-            <div class="product-card__body">
-              <h2 class="product-card__name"><a href="#">Кроссовки из замши</a></h2>
-              <p class="product-card__meta">Резина · осталось 2 пары</p>
-              <div class="product-card__footer">
-                <span class="product-card__price">11 200 ₽</span>
-                <button class="product-card__btn" type="button">В корзину</button>
-              </div>
-            </div>
-          </li>
-        </ul>
+          <ul class="product-grid">
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/71-3HjGNDULeL+F3GrfrfpFi94afwgX4FBNUaLg4K8UkEelN+zvUTAzDxS0ZVRQAJAgP9i+THTbZLRzQHO6+Txe7xNqRmpef6Dncm6xqLxNjgpwfw" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Men's Clothing</p>
+                  <h2 class="product-card__title">Fjallraven backpack</h2>
+                  <p class="product-card__price">$109.95</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/71li-ujtlULXK1xNFgqxQ7M1WWFKiNHT4z8aFvWyimdqjnxuNi9Skx0LvLi9JCORjV" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Men's Clothing</p>
+                  <h2 class="product-card__title">Mens casual slim fit</h2>
+                  <p class="product-card__price">$15.99</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/61sbMiUnoGL._UL640_QL65_ML3_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Men's Clothing</p>
+                  <h2 class="product-card__title">Mens cotton jacket</h2>
+                  <p class="product-card__price">$55.99</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/71YXzeHusL._AC_UY879_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Men's Clothing</p>
+                  <h2 class="product-card__title">Mens casual slim fit 2</h2>
+                  <p class="product-card__price">$22.30</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Women's Clothing</p>
+                  <h2 class="product-card__title">Solid gold petit snowflake pendant</h2>
+                  <p class="product-card__price">$168.00</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Women's Clothing</p>
+                  <h2 class="product-card__title">Princess mid sleeve dress</h2>
+                  <p class="product-card__price">$9.99</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/71z3bkB5qL._AC_UX679_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Women's Clothing</p>
+                  <h2 class="product-card__title">Opna dry-fit sleeveless</h2>
+                  <p class="product-card__price">$7.95</p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <img src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" alt="" width="640" height="800" loading="lazy" />
+                  <span class="product-card__quick">View</span>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__meta">Women's Clothing</p>
+                  <h2 class="product-card__title">Cotton casual slim fit</h2>
+                  <p class="product-card__price">$39.99</p>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
   </body>
